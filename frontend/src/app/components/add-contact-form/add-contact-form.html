@@ -1,0 +1,68 @@
+<form id="contact" #contactForm="ngForm" (ngSubmit)="submitContact(contactForm)">
+    <fieldset id="businessInfo">
+        <legend>Business Information</legend>
+
+        <div id="contactRow1" class="formRow">
+            <label for="company">Company*</label>
+            <input name="contactCompany" id="company" type="text" [(ngModel)]="newContact.company" #contactCompany="ngModel" required/>
+            @if (contactCompany.invalid && contactCompany.touched && contactCompany.errors?.['required']) 
+            {
+               <span>A company name is required</span>
+            }
+        </div>
+
+        <div id="contactRow2" class="formRow">
+            <label for="firstName">First Name*</label>
+            <input name="contactFirstName" id="firstName" type="text" [(ngModel)]="newContact.firstname" #contactFirstName="ngModel" required/>
+            @if (contactFirstName.invalid && contactFirstName.touched && contactFirstName.errors?.['required']) 
+            {
+               <span>A first name is required</span>
+            }
+        </div>
+
+        <div id="contactRow3" class="formRow">
+            <label for="lastName">Last Name*</label>
+            <input name="contactLastName" id="lastName" type="text" [(ngModel)]="newContact.lastname" #contactLastName="ngModel" required/>
+            @if (contactLastName.invalid && contactLastName.touched && contactLastName.errors?.['required']) 
+            {
+               <span>A last name is required</span>
+            }
+        </div>
+
+        <div id="contactRow4" class="formRow">
+            <label for="city">City</label>
+            <input name="contactCity" id="city" type="text" [(ngModel)]="newContact.city" #contactCity="ngModel"/>
+        </div>
+
+        <div id="contactRow5" class="formRow">
+            <label for="state">State</label>
+            <input name="contactState" id="state" type="text" [(ngModel)]="newContact.state" #contactState="ngModel"/>
+        </div>
+
+        <div id="contactRow6" class="formRow">
+            <label for="zip">Zip</label>
+            <input name="contactZip" id="zip" type="text" placeholder="nnnnn (-nnnn)" [(ngModel)]="newContact.zip" #contactZip="ngModel" />
+        </div>
+
+        <div id="contactRow7" class="formRow">
+            <label for="phone">Phone Number</label>
+            <input name="contactPhoneNumber" id="phone" type="tel" placeholder="nnn-nnn-nnnn" [(ngModel)]="newContact.phonenumber" #contactPhoneNumber="ngModel" />
+        </div>
+
+        <div id="contactRow8" class="formRow">
+            <label for="email">Email Address*</label>
+            <input name="contactEmail" id="email" type="email" placeholder="abc@example.com" [(ngModel)]="newContact.email" #contactEmail="ngModel" required />
+            @if (contactEmail.invalid && contactEmail.touched && contactEmail.errors?.['required']) 
+            {
+               <span>An email is required</span>
+            }
+        </div>
+
+        <div id="contactRow9" class="formRow">
+            <label for="comment">Comment(s)</label>
+            <textarea name="contactComment" id="comment" [(ngModel)]="newContact.comment" #contactComment="ngModel"></textarea>
+        </div>
+
+        <input id="submit" type="submit" value="Submit" [disabled]="contactForm.invalid">
+    </fieldset>
+</form>

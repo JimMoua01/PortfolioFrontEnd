@@ -1,0 +1,48 @@
+<form id="projectUploadForm" #projectForm="ngForm" (ngSubmit)="submitProject(projectForm)">
+    <fieldset id="projectInformation">
+        <legend>Project Upload</legend>
+
+        <div id="projectRow1" class="formRow">
+            <label for="ptitle">Project Title*</label>
+            <input name="projectTitle" id="ptitle" type="text" [(ngModel)]="newProject.title" #projectTitle="ngModel" required/>
+            @if (projectTitle.invalid && projectTitle.touched && projectTitle.errors?.['required']) 
+            {
+               <span>Project title is required</span>
+            }
+        </div>
+
+        <div id="projectRow2" class="formRow">
+            <label for="pdescription">Project Description*</label>
+            <textarea name="projectDescription" id="pdescription" row="4" cols="60" placeholder="Keep within 500 characters" [(ngModel)]="newProject.description" #projectDescription="ngModel" required></textarea>
+            @if (projectDescription.invalid && projectDescription.touched && projectDescription.errors?.['required']) 
+            {
+               <span>A description is required</span>
+            }
+        </div>
+
+        <div id="projectRow3" class="formRow">
+            <label for="ptype">Project Type:</label>
+            <select name="projectType" id="ptype" [(ngModel)]="newProject.type" #projectType="ngModel">
+                <option value="Programming">Programming</option>
+                <option value="Data">Data</option>
+                <option value="Web">Web</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div id="projectRow4" class="formRow">
+            <label for="plink">Project Link:</label>
+            <input name="projectLink" id="plink" type="url" [(ngModel)]="newProject.link" #projectLink="ngModel"/>
+        </div>
+
+        <div id="projectRow5" class="formRow">
+            <label for="pimage">Upload Picture*</label>
+            <input name="projectImage" id="pimage" type="file" accept="image/*" #imageInput (change)="onFileSelected($event)" required/>
+            @if (!newProject.image && projectForm.submitted)
+            {
+                <span>Image is required</span>
+            }
+        </div>
+        <input id="psubmit" type="submit" value="Submit" [disabled]="projectForm.invalid || !newProject.image" />
+    </fieldset>
+</form>

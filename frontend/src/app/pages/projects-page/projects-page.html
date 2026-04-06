@@ -1,0 +1,99 @@
+
+    <div class="back">
+        <header>
+            <app-navigation-bar></app-navigation-bar>
+
+            <h1 class="title">Jim's Portfolio</h1>
+
+            <div class="banner">
+                <p>Projects</p>
+            </div>
+            
+        </header>
+
+        <section>
+            
+            <img src="/images/gunpla_7Days.jpg" alt="7 gunpla" class="gunpla">
+
+            <h1>Questions about my projects</h1>
+
+            <h2>What have you personally accomplished</h2>
+            <ul>
+                <li>Weeklong Gunpla Building Spree</li>
+                <ul>
+                    <li>Day 1: HG Gundam 00 Command QAN[T]</li>
+                    <li>Day 2: HG Gundam Helios</li>
+                    <li>Day 3: HG Gundam Livelance Heaven</li>
+                    <li>Day 4: HG Gundam Perfect Strike Freedom</li>
+                    <li>Day 5: HG Destiny Gundam</li>
+                    <li>Day 6: HG Infinite Justice Gundam</li>
+                    <li>Day 7: HG Gundam Barbataurus</li>
+                </ul>
+            </ul>
+        
+            <h2>What did you take away from your projects?</h2>
+            <p>Building  model kits is something I should do only when I 
+            feel like it.  While I’m proud of how all the kits turned out, 
+            I won’t deny that I got burnt out.  The process of cutting out 
+            parts, assembling them, panel lining, and applying stickers got 
+            monotonous.  In the future, I should space out my kits and 
+            dedicate time to each of them, so that I can fully enjoy the 
+            process.</p>
+
+            <aside id="gunpla">
+                <h2>Gunpla</h2>
+                <p class="asideText">Gunpla is short for Gundam plastic model kit.  What sets it
+                apart from other model kits is that it's based on the 
+                long-running franchise, <em>Mobile Suit Gundam</em>, and it's 
+                building process is snap-build, meaning no glue is required.  
+                Gunpla kits are usually grouped into four main grades, which 
+                denote it's size, complexity, and detail.</p>
+                <ul class="asideText">
+                    <li><strong>Gunpla Grades</strong></li>
+                    <ul>
+                        <li>High Grade</li>
+                        <li>Master Grade</li>
+                        <li>Perfect Grade</li>
+                        <li>Real Grade</li>
+                    </ul>
+                </ul>
+            </aside>
+
+            <section id="projectSection" class="projects">
+
+                <h2>What are your major academic projects?</h2>
+
+                <button (click)="filterProjects('all')">All Projects</button>
+                <button (click)="filterProjects('other')">Non-Software</button>
+                <button (click)="filterProjects('software')">Software Development</button>
+
+                <div id="projectGrouping">
+                    <app-project-card 
+                    *ngFor="let project of (projects$ | async)?.filter(p => 
+                        filter === 'all' ||
+                        (filter === 'software' && (p.type.includes('Programming') || p.type.includes('Web') || p.type.includes('Data'))) ||
+                        (filter === 'other' && p.type === 'Other')
+                    )"
+                    [project]="project">
+                    </app-project-card>
+                </div>
+            </section>
+
+            <app-add-project-form (projectAdded)="reloadProjects()"></app-add-project-form>
+            
+            <article>
+                <h2>What are your future plans?</h2>
+                <p>I want to be more involved in the IT field, and such, have
+                my future projects reflect that.  When I get more knowledge
+                and enough experience, I want to take the leap of creating 
+                something useful and impressive.</p>
+            </article>
+
+            <footer>
+                <address>
+                    6506 Stettin Dr. &#169; 2024 Jim Moua
+                    <a href="#top">To Top</a>
+                </address>
+            </footer>
+        </section>
+    </div>

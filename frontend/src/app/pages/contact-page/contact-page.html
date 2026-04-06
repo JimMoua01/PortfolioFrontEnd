@@ -1,0 +1,46 @@
+<div class="back">
+    <header>
+        <app-navigation-bar></app-navigation-bar>
+
+        <h1 class="title">Jim's Portfolio</h1>
+
+        <div class="banner">
+            <p>Contact</p>
+        </div>
+    </header>
+
+    <section>
+
+        <h1>Questions about contacting me</h1>
+
+        <h2>How do I contact you?</h2>
+        <ul>
+            <li>Email: jinrimoua01@gmail.com</li>
+            <li>Call: (1) 715 - 393 - 7778</li>
+            <li>Address: 6506 Stettin Dr.</li>
+        </ul>
+
+        <h2>What are your response times for emails?</h2>
+        <p>It will typically take me around 1-2 days to respond to your 
+        sent email(s).  During holidays, this may be delayed by another 
+        day or two.  Regardless, I will try my best to get back to you 
+        the earliest I can.</p>
+
+        <h2>When are you available for a call?</h2>
+        <ul>
+            <li>Sunday:                     10:00 AM - 12:00 PM (CT)</li>
+            <li>Monday, Wednesday, Friday:  10:00 AM - 4:00 PM (CT)</li>
+            <li>Tuesday, Thursday:          10:00 AM - 6:00 PM (CT)</li>
+            <li>Saturday:                   12:00 AM - 6:00 PM (CT)</li>
+        </ul>
+
+        <app-add-contact-form (contactAdded)="reloadContacts()"></app-add-contact-form>
+
+        <footer>
+            <address>
+                6506 Stettin Dr. &#169; 2024 Jim Moua
+                <a href="#top">To Top</a>
+            </address>
+        </footer>
+    </section>
+</div>
