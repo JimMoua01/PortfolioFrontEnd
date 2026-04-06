@@ -10,7 +10,8 @@ export class ProjectService {
 
   // api = "http://localhost:3000";
   // api = "https://portfolioprojectbackend.onrender.com";
-  api = "https://localhost:7293/api/portfolio";
+  // api = "https://localhost:7293/api/portfolio";
+  api = "https://portfoliobackendapi-mgz0.onrender.com/api/portfolio"
 
   constructor(private http: HttpClient) {}
 
