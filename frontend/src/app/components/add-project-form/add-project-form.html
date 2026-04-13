@@ -13,7 +13,7 @@
 
         <div id="projectRow2" class="formRow">
             <label for="pdescription">Project Description*</label>
-            <textarea name="projectDescription" id="pdescription" row="4" cols="60" placeholder="Keep within 500 characters" [(ngModel)]="newProject.description" #projectDescription="ngModel" required></textarea>
+            <textarea name="projectDescription" id="pdescription" rows="4" cols="60" placeholder="Keep within 500 characters" [(ngModel)]="newProject.description" #projectDescription="ngModel" required></textarea>
             @if (projectDescription.invalid && projectDescription.touched && projectDescription.errors?.['required']) 
             {
                <span>A description is required</span>

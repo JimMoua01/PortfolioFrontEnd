@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, Output, ChangeDetectorRef, EventEmitter } from '@angular/core';
+import { Component, ElementRef, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ProjectService } from '../../services/project-service';
 
@@ -9,7 +9,6 @@ import { ProjectService } from '../../services/project-service';
   styleUrl: './add-project-form.css',
 })
 export class AddProjectForm {
-  @Output() projectAdded = new EventEmitter<void>();
   @ViewChild('imageInput') imageInput!: ElementRef;
   newProject = {
     id: 0,
@@ -29,20 +28,18 @@ export class AddProjectForm {
       return;
     }
 
-    this.projectService.addProject(this.newProject).subscribe(() => {
-      this.projectAdded.emit();
+    this.projectService.addProject(this.newProject);
 
-      form.resetForm({
-        projectTitle: "",
-        projectDescription: "",
-        projectType: "Programming",
-        projectLink: ""
-      });
-
-      this.newProject.id = 0;
-      this.newProject.image = "";
-      this.imageInput.nativeElement.value = "";
+    form.resetForm({
+      projectTitle: "",
+      projectDescription: "",
+      projectType: "Programming",
+      projectLink: ""
     });
+
+    this.newProject.id = 0;
+    this.newProject.image = "";
+    this.imageInput.nativeElement.value = "";
 
     console.log("The Project has been submitted");
   }

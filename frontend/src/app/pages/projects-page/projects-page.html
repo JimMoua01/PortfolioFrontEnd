@@ -40,32 +40,15 @@
             dedicate time to each of them, so that I can fully enjoy the 
             process.</p>
 
-            <aside id="gunpla">
-                <h2>Gunpla</h2>
-                <p class="asideText">Gunpla is short for Gundam plastic model kit.  What sets it
-                apart from other model kits is that it's based on the 
-                long-running franchise, <em>Mobile Suit Gundam</em>, and it's 
-                building process is snap-build, meaning no glue is required.  
-                Gunpla kits are usually grouped into four main grades, which 
-                denote it's size, complexity, and detail.</p>
-                <ul class="asideText">
-                    <li><strong>Gunpla Grades</strong></li>
-                    <ul>
-                        <li>High Grade</li>
-                        <li>Master Grade</li>
-                        <li>Perfect Grade</li>
-                        <li>Real Grade</li>
-                    </ul>
-                </ul>
-            </aside>
-
             <section id="projectSection" class="projects">
 
                 <h2>What are your major academic projects?</h2>
 
-                <button (click)="filterProjects('all')">All Projects</button>
-                <button (click)="filterProjects('other')">Non-Software</button>
-                <button (click)="filterProjects('software')">Software Development</button>
+                <div class="buttonGroup">
+                    <button mat-raised-button (click)="filterProjects('all')">All Projects</button>
+                    <button mat-raised-button (click)="filterProjects('other')">Non-Software</button>
+                    <button mat-raised-button (click)="filterProjects('software')">Software Development</button>
+                </div>
 
                 <div id="projectGrouping">
                     <app-project-card 
@@ -77,9 +60,9 @@
                     [project]="project">
                     </app-project-card>
                 </div>
-            </section>
 
-            <app-add-project-form (projectAdded)="reloadProjects()"></app-add-project-form>
+                <app-add-project-form></app-add-project-form>
+            </section>
             
             <article>
                 <h2>What are your future plans?</h2>

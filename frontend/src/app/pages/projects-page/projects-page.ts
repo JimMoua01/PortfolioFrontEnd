@@ -6,9 +6,12 @@ import { ProjectCard } from '../../components/project-card/project-card';
 import { AddProjectForm } from '../../components/add-project-form/add-project-form';
 import { ProjectService } from '../../services/project-service';
 import { Project } from '../../models/project';
+
+import { MatButtonModule } from '@angular/material/button';
+
 @Component({
   selector: 'app-projects-page',
-  imports: [NavigationBar, ProjectCard, AddProjectForm, CommonModule],
+  imports: [NavigationBar, ProjectCard, AddProjectForm, CommonModule, MatButtonModule],
   templateUrl: './projects-page.html',
   styleUrl: './projects-page.css',
 })
@@ -17,11 +20,7 @@ export class ProjectsPage {
   filter: string = 'all';
 
   constructor(private projectService : ProjectService) {
-    this.projects$! = this.projectService.getProjects();
-  }
-
-  reloadProjects() {
-    this.projects$ = this.projectService.getProjects();
+    this.projects$! = this.projectService.projects$;
   }
 
   filterProjects(value: 'all' | 'other' | 'software') {

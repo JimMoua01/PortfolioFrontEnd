@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { ContactService } from '../../services/contact-service';
 import { FormsModule, NgForm } from '@angular/forms';
 
@@ -9,7 +9,6 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrl: './add-contact-form.css',
 })
 export class AddContactForm {
-  @Output() contactAdded = new EventEmitter<void>();
   newContact = {
     id: 0,
     company: '',
@@ -30,24 +29,19 @@ export class AddContactForm {
       return;
     }
 
-    this.contactService.addContact(this.newContact).subscribe(() => {
-      console.log(this.newContact);
-      this.contactAdded.emit();
-
-      form.resetForm({
-        contactCompany: "",
-        contactFirstName: "",
-        contactLastName: "",
-        contactCity: "Wausau",
-        contactState: "WI",
-        contactZip: "",
-        contactPhoneNumber: "",
-        contactEmail: "",
-        contactComment: ""
-      });
-
+    this.contactService.addContact(this.newContact);
+    form.resetForm({
+      contactCompany: "",
+      contactFirstName: "",
+      contactLastName: "",
+      contactCity: "Wausau",
+      contactState: "WI",
+      contactZip: "",
+      contactPhoneNumber: "",
+      contactEmail: "",
+      contactComment: ""
     });
 
-    console.log("Contact Form has been submitted");
+    console.log("Contact Form has been submitted", this.contactService.contacts$);
   }
 }

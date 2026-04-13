@@ -15,10 +15,6 @@ export class ContactPage {
   contacts$!: Observable<Contact[]>;
   
   constructor(private contactService: ContactService) {
-    this.contacts$ = this.contactService.getContacts();
-  };
-
-  reloadContacts() {
-    this.contacts$ = this.contactService.getContacts();
+    this.contacts$ = this.contactService.contacts$;
   };
 }

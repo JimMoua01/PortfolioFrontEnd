@@ -1,5 +1,7 @@
-<div class="projectOverlap">
-    <h3>{{ project.title }}</h3>
-    <img [src]="project.image" />
-    <p>{{ project.description }}</p>
-</div>
+<mat-card class="projectOverlap">
+    <mat-card-title>{{ project.title }}</mat-card-title>
+    <img mat-card-image [src]="project.image" />
+    <mat-card-content>
+        {{ project.description }}
+    </mat-card-content>
+</mat-card>

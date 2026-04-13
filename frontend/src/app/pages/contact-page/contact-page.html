@@ -11,30 +11,36 @@
 
     <section>
 
-        <h1>Questions about contacting me</h1>
+        <div class="contactContainer">
+            <div class="contactLeft">
+                <h1>Questions about contacting me</h1>
 
-        <h2>How do I contact you?</h2>
-        <ul>
-            <li>Email: jinrimoua01@gmail.com</li>
-            <li>Call: (1) 715 - 393 - 7778</li>
-            <li>Address: 6506 Stettin Dr.</li>
-        </ul>
+                <h2>How do I contact you?</h2>
+                <ul>
+                    <li>Email: jinrimoua01@gmail.com</li>
+                    <li>Call: (1) 715 - 393 - 7778</li>
+                    <li>Address: 6506 Stettin Dr.</li>
+                </ul>
 
-        <h2>What are your response times for emails?</h2>
-        <p>It will typically take me around 1-2 days to respond to your 
-        sent email(s).  During holidays, this may be delayed by another 
-        day or two.  Regardless, I will try my best to get back to you 
-        the earliest I can.</p>
+                <h2>What are your response times for emails?</h2>
+                <p>It will typically take me around 1-2 days to respond to your 
+                sent email(s).  During holidays, this may be delayed by another 
+                day or two.  Regardless, I will try my best to get back to you 
+                the earliest I can.</p>
 
-        <h2>When are you available for a call?</h2>
-        <ul>
-            <li>Sunday:                     10:00 AM - 12:00 PM (CT)</li>
-            <li>Monday, Wednesday, Friday:  10:00 AM - 4:00 PM (CT)</li>
-            <li>Tuesday, Thursday:          10:00 AM - 6:00 PM (CT)</li>
-            <li>Saturday:                   12:00 AM - 6:00 PM (CT)</li>
-        </ul>
+                <h2>When are you available for a call?</h2>
+                <ul>
+                    <li>Sunday:                     10:00 AM - 12:00 PM (CT)</li>
+                    <li>Monday, Wednesday, Friday:  10:00 AM - 4:00 PM (CT)</li>
+                    <li>Tuesday, Thursday:          10:00 AM - 6:00 PM (CT)</li>
+                    <li>Saturday:                   12:00 AM - 6:00 PM (CT)</li>
+                </ul>
+            </div>
 
-        <app-add-contact-form (contactAdded)="reloadContacts()"></app-add-contact-form>
+            <div class="contactRight">
+                <app-add-contact-form></app-add-contact-form>
+            </div>
+        </div>
 
         <footer>
             <address>
